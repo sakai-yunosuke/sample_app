@@ -8,6 +8,7 @@ gem 'jquery-rails', '4.3.1'
 gem 'puma',         '3.9.1'
 gem 'rails',        '5.1.6'
 gem 'sass-rails',   '5.0.6'
+gem 'slim-rails',   '3.1.3'
 gem 'turbolinks',   '5.0.1'
 gem 'uglifier',     '3.2.0'
 
@@ -17,12 +18,13 @@ group :development, :test do
 end
 
 group :development do
+  gem 'html2slim', require: false
   gem 'listen', '3.1.5'
   gem 'pre-commit', require: false
   gem 'rubocop', require: false
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
-  gem 'web-console',           '3.5.1'
+  gem 'web-console', '3.5.1'
 end
 
 group :test do

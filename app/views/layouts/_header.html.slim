@@ -1,8 +1,11 @@
-header.navbar.navbar-fixed-top.navbar-inverse
+nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark
   .container
     = link_to 'sample app', root_path, id: 'logo'
     nav
-      ul.nav.navbar-nav.navbar-right
-        li = link_to 'Home', root_path
-        li = link_to 'Help', help_path
-        li = link_to 'Log in', '#'
+      ul.nav.navbar-nav.mr-auto
+        li.nav-item
+          = link_to 'Home', help_path, class: 'nav-link'
+        li.nav-item
+           = link_to 'Help', help_path, class: 'nav-link'
+        li.nav-item
+           = link_to 'Log in', '#', class: 'nav-link'

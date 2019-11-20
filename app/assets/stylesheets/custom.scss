@@ -10,7 +10,7 @@ $gray-darker: #222;
 /* universal */
 
 body {
-    padding-top: 60px;
+    padding-top: 70px;
 }
 
 section {
@@ -25,7 +25,7 @@ textarea {
     text-align: center;
 
     h1 {
-        margin-bottom: 10px;
+        margin-bottom: 0.2em;
     }
 }
 
@@ -38,14 +38,14 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-size: 3em;
     letter-spacing: -2px;
-    margin-bottom: 30px;
+    margin-bottom: 0.3em;
     text-align: center;
 }
 
 h2 {
     font-size: 1.2em;
     letter-spacing: -1px;
-    margin-bottom: 30px;
+    margin-bottom: 1em;
     text-align: center;
     font-weight: normal;
     color: $gray-light;
@@ -60,7 +60,7 @@ p {
 
 #logo {
     float: left;
-    margin-right: 10px;
+    margin-right: 1em;
     font-size: 1.7em;
     color: white;
     text-transform: uppercase;
@@ -76,8 +76,8 @@ p {
 /* footer */
 
 footer {
-    margin-top: 45px;
-    padding-top: 5px;
+    margin-top: 1em;
+    padding-top: 1em;
     border-top: 1px solid $gray-medium-light;
     color: $gray-light;
 
@@ -99,7 +99,7 @@ footer {
 
         li {
             float: left;
-    margin-left: 15px;
+            margin-left: 1.5em;
         }
     }
 }

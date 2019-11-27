@@ -1,16 +1,12 @@
-- provide(:title, "About")
+- provide(:title, 'About')
 h1
   | About
 p
-  a href="https://railstutorial.jp/"
-    | Ruby on Rails Tutorial
+  = link_to 'Ruby on Rails Tutorial', 'https://railstutorial.jp/'
   |  is a 
-  a href="https://railstutorial.jp/#ebook"
-    | book
+  = link_to 'book', 'https://railstutorial.jp/#ebook'
   |  and 
-  a href="https://railstutorial.jp/#screencast"
-    | screencast
+  = link_to 'screencast', 'https://railstutorial.jp/#screencast'
   |  to teach web development with 
-  a href="http://rubyonrails.org/"
-    | Ruby on Rails
-  | . This is the sample application for the tutorial. 
+  = link_to 'Ruby on Rails', 'http://rubyonrails.org/'
+  | . This is the sample application for the tutorial.

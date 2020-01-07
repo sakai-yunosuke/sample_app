@@ -7,12 +7,6 @@ $gray-light: #777;
 $gray: #555;
 $gray-darker: #222;
 
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 /* universal */
 
 body {
@@ -158,7 +152,7 @@ input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
-  @include box_sizing;
+  box-sizing: border-box;
 }
 
 input {
@@ -191,5 +185,5 @@ input {
   float: left;
   width: 100%;
   margin-top: 45px;
-  @include box_sizing;
+  box-sizing: border-box;
 }

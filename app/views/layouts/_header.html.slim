@@ -15,4 +15,25 @@ nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.bg-dark
       .navbar-nav.ml-auto
         = link_to 'Home', root_path, class: 'nav-link'
         = link_to 'Help', help_path, class: 'nav-link'
-        = link_to 'Log in', '#', class: 'nav-link'
+        
+        - if logged_in?
+          = link_to 'Users', '#', class: 'nav-link'
+          .dropdown
+            button.btn.btn-secondary.dropdown-toggle [
+              type='button'
+              id='dropdownMenuButton'
+              data-toggle='dropdown'
+              aria-haspopup='true'
+              aria-expanded='false'
+            ]
+              | Account
+            
+            .dropdown-menu [
+              aria-labelledby='dropdownMenuButton'
+            ]
+              = link_to 'Profile', current_user, class: 'dropdown-item'
+              = link_to 'Settings', '#', class: 'dropdown-item'
+              .dropdown-divider
+              = link_to 'Log out', logout_path, method: :delete, class: 'dropdown-item'
+        - else
+          = link_to 'Log in', login_path, class: 'nav-link'

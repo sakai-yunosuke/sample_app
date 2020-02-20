@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SessionsHelper
   # Log in as input user
   def log_in(user)

@@ -13,6 +13,10 @@ h1
       = f.label :password
       = f.password_field :password, class: 'form-control'
 
+      .form-inline
+        = f.check_box :remember_me, class: 'form-control'
+        = f.label :remember_me, 'Remember me on this computer', class: 'checkbox'
+
       = f.submit 'Log in', class: 'btn btn-primary'
 
     p

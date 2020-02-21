@@ -39,7 +39,7 @@ class User < ApplicationRecord
   end
 
   # Return true if remember_token and digest are the same
-  def authenticated?
+  def authenticated?(remember_token)
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 

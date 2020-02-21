@@ -42,4 +42,9 @@ class User < ApplicationRecord
   def authenticated?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
+
+  # Destroy user's log in info
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
 end

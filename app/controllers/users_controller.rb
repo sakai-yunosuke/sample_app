@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: %i[index edit update destroy]
-  before_action :correct_user, only: %i[edit update]
-  before_action :admin_user, only: :destroy
+  before_action :redirect_to_login_unless_logged_in, only: %i[index edit update destroy]
+  before_action :redirect_to_root_unless_correct_user, only: %i[edit update]
+  before_action :redirect_to_root_unless_admin, only: :destroy
 
   def new
     @user = User.new
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
       )
     end
 
-    def logged_in_user
+    def redirect_to_login_unless_logged_in
       unless logged_in?
         store_location
         flash[:danger] = 'Please log in'
@@ -67,12 +67,12 @@ class UsersController < ApplicationController
       end
     end
 
-    def correct_user
+    def redirect_to_root_unless_correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
 
-    def admin_user
+    def redirect_to_root_unless_admin
       redirect_to(root_url) unless current_user.admin?
     end
 end

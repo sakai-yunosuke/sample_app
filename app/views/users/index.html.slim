@@ -3,8 +3,14 @@
 h1
   | All users
 
+= will_paginate(@posts, class: 'pagination justify-content-center',
+                          renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer)
+
 ul.users
   - @users.each do |user|
     li
       = gravatar_for user, size: 50
       = link_to user.name, user
+
+= will_paginate(@posts, class: 'pagination justify-content-center',
+                          renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer)

@@ -20,6 +20,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'faker', '1.7.3'
   gem 'html2slim', require: false
   gem 'listen', '3.1.5'
   gem 'pre-commit', require: false

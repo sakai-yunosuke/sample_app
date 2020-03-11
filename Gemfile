@@ -13,6 +13,8 @@ gem 'sass-rails',     '5.0.6'
 gem 'slim-rails',     '3.1.3'
 gem 'turbolinks',     '5.0.1'
 gem 'uglifier',       '3.2.0'
+gem 'will_paginate',  '3.1.6'
+gem 'will_paginate-bootstrap4'
 
 group :development, :test do
   gem 'byebug',  '9.0.6', platform: :mri
@@ -20,6 +22,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'faker', '1.7.3'
   gem 'html2slim', require: false
   gem 'listen', '3.1.5'
   gem 'pre-commit', require: false

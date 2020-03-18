@@ -5,8 +5,8 @@ class User < ApplicationRecord
 
   attr_accessor :remember_token, :activation_token
 
+  before_validation :downcase_email
   before_create :create_activation_digest
-  before_save :downcase_email
   has_secure_password
 
   validates :name,

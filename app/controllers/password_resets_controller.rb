@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PasswordResetsController < ApplicationController
   before_action :set_user_by_email, only: %i[edit update]
   before_action :redirect_to_root_unless_valid_user, only: %i[edit update]

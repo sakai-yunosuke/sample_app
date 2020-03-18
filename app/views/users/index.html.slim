@@ -3,11 +3,9 @@
 h1
   | All users
 
-= will_paginate(@posts, class: 'pagination justify-content-center',
-                          renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer)
+= will_paginate
 
 ul.users
   = render @users
 
-= will_paginate(@posts, class: 'pagination justify-content-center',
-                          renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer)
+= will_paginate

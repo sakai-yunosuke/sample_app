@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :set_user_by_id, only: %i[show edit update]
   before_action :redirect_to_login_unless_logged_in, only: %i[index edit update destroy]
   before_action :redirect_to_root_unless_correct_user, only: %i[edit update]
   before_action :redirect_to_root_unless_admin, only: :destroy
@@ -10,30 +11,28 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.where(activated: true).paginate(page: params[:page])
   end
 
   def show
-    @user = User.find(params[:id])
+    redirect_to root_url and return unless @user.activated?
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:success] = 'Welcome to the Sample App!'
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = 'Please check your email to activate your account.'
+      redirect_to root_url
     else
       render 'new'
     end
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = 'Profile updated!'
       redirect_to @user
@@ -49,6 +48,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+    def set_user_by_id
+      @user = User.find(params[:id])
+    end
 
     def user_params
       params.require(:user).permit(

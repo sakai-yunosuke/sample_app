@@ -49,33 +49,33 @@ class UsersController < ApplicationController
 
   private
 
-    def set_user_by_id
-      @user = User.find(params[:id])
-    end
+  def set_user_by_id
+    @user = User.find(params[:id])
+  end
 
-    def user_params
-      params.require(:user).permit(
-        :name,
-        :email,
-        :password,
-        :password_confirmation
-      )
-    end
+  def user_params
+    params.require(:user).permit(
+      :name,
+      :email,
+      :password,
+      :password_confirmation
+    )
+  end
 
-    def redirect_to_login_unless_logged_in
-      unless logged_in?
-        store_location
-        flash[:danger] = 'Please log in'
-        redirect_to login_url
-      end
+  def redirect_to_login_unless_logged_in
+    unless logged_in?
+      store_location
+      flash[:danger] = 'Please log in'
+      redirect_to login_url
     end
+  end
 
-    def redirect_to_root_unless_correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
-    end
+  def redirect_to_root_unless_correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
 
-    def redirect_to_root_unless_admin
-      redirect_to(root_url) unless current_user.admin?
-    end
+  def redirect_to_root_unless_admin
+    redirect_to(root_url) unless current_user.admin?
+  end
 end

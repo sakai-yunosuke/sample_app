@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
 
   private
 
-    def set_remember_me?
-      params[:session][:remember_me] == '1'
-    end
+  def set_remember_me?
+    params[:session][:remember_me] == '1'
+  end
 end

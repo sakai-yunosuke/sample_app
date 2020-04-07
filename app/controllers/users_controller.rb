@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :set_user_by_id, only: %i[show edit update]
-  before_action :redirect_to_login_unless_logged_in, only: %i[index edit update destroy]
+  before_action :redirect_to_login_unless_logged_in, only: %i[index edit update destroy following followers]
   before_action :redirect_to_root_unless_correct_user, only: %i[edit update]
   before_action :redirect_to_root_unless_admin, only: :destroy
 
@@ -46,6 +46,20 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = 'User deleted'
     redirect_to users_url
+  end
+
+  def following
+    @title = 'Following'
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = 'Followers'
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
   end
 
   private
